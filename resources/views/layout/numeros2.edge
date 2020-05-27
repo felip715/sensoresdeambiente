@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>info</title>
+    <link rel="stylesheet" href="colores.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    {{ style('morris.css') }}
+    {{-- style('colores.css') --}}
+    {{ script('jquery-3.5.0.js')}}
+    {{ script('morris.min.js') }}
+    
+</head>
+<body>
+
+    <h1>Medición de Calidad de Aire</h1>
+
+    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header"><h5>Datos Actuales</h5></div>
+        <div class="card-body">
+          <p class="card-text" id="idtemp"> </p>
+          <p class="card-text" id="idhume"> </p>
+        </div>
+        </div>
+    
+    
+      <div id="datosactuales">
+</div>
+      <div class="dropdown">
+          <h2>Elegir limites de fechas para la gráfica</h2>
+          <hr>
+<select name="Fechasini" id="fecha_inicio" class="btn btn-secondary dropdown-toggle">
+    <option class="dropdown-menu" value="muestra" id= "fechini" name="f1">Fecha de inicio </option>
+    @each(elemento in datosstring)
+    <option class="dropdown-item" value='{{ elemento.Id }}' name="f2">{{ elemento.fechaaver }}</option> 
+    @endeach
+</select>
+
+<select name="Fechasfin" id="fecha_final" class="btn btn-secondary dropdown-toggle">
+    <!--option class="dropdown-menu" selected value="{{{ultimoid}}}" id="fechfin">Fecha final </option--> 
+    <option class="dropdown-menu" selected value="nulo" id="fechfin">Fecha final </option> 
+</select>
+</div>
+<hr>
+        <div id='grafica' style="height: 350px"></div>  
+{{ script('fechas.js') }}
+</body>
