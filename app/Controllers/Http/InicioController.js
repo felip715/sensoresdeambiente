@@ -26,7 +26,6 @@ class InicioController {
         const ultimoid = id1[z - 1];
         const data = [];
 
-        datosstring.exports = data;
         return view.render('layout/numeros2', { z, datosstring, fec4, id1, ultimoid });
     };
 
@@ -74,7 +73,7 @@ class InicioController {
         const ids = request.all();
         console.log(ids);
         //const temperatura = await Database.table('datos').select('fecha', 'temperatura', 'humedad').where('Id', '>=', ids.idinicial, 'and', 'Id', '<', ids.idfinal);
-        const temperatura = await Database.table('datos').select('fecha', 'temperatura', 'humedad').where('Id', '>=', ids.idinicial).where('Id', '<', ids.idfinal);
+        const temperatura = await Database.table('datos').select('fecha', 'temperatura', 'humedad').where('Id', '>=', ids.idinicial).where('Id', '<=', ids.idfinal);
         var datos = FechaService.fechaamostrar(temperatura);
         return datos;
     };
