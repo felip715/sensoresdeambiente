@@ -72,7 +72,6 @@ class InicioController {
     async temperatura({ request }) {
         const ids = request.all();
         console.log(ids);
-        //const temperatura = await Database.table('datos').select('fecha', 'temperatura', 'humedad').where('Id', '>=', ids.idinicial, 'and', 'Id', '<', ids.idfinal);
         const temperatura = await Database.table('datos').select('fecha', 'temperatura', 'humedad').where('Id', '>=', ids.idinicial).where('Id', '<=', ids.idfinal);
         var datos = FechaService.fechaamostrar(temperatura);
         return datos;
