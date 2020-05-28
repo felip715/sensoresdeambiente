@@ -41,7 +41,7 @@ $(document).ready(function() {
     });
 });
 
-(function(datact) {
+(function datact() {
     $.get("datosactuales", function(datosrecibidos, status) {
         const datrecstring = JSON.parse(JSON.stringify(datosrecibidos)); // paso a string 
         $("#idtemp").html("Temperatura: " + datrecstring.temperatura + " °C");
@@ -49,7 +49,19 @@ $(document).ready(function() {
     });
 })();
 
-setInterval(datact(), 5000);
+function datacta() {
+    console.log("se imprime");
+};
+
+function datact() {
+    $.get("datosactuales", function(datosrecibidos, status) {
+        const datrecstring = JSON.parse(JSON.stringify(datosrecibidos)); // paso a string 
+        $("#idtemp").html("Temperatura: " + datrecstring.temperatura + " °C");
+        $("#idhume").html("Humedad: " + datrecstring.humedad + " %");
+    });
+}
+
+setInterval('datact()', 10000);
 
 var morris1 = new Morris.Line({
     element: 'grafica',
