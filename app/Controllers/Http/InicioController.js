@@ -4,6 +4,7 @@ const FechaService = use('App/Services/FechaService');
 
 class InicioController {
     // cambio para subir a la web de git
+
     async numeros2({ view }) { // obtengo todos los datos como JSON
         const datos = await Database.table('datos').select('*');
         const datosstring = JSON.parse(JSON.stringify(datos));
