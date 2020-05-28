@@ -18,11 +18,9 @@ const Route = use('Route')
 const edge = use('edge.js')
 const Helpers = use('Helpers')
 const Database = use('Database')
-    //const datos = Database.table('datos').select('id', 'fecha', 'temperatura', 'humedad')
 
 Route.on('/').render('welcome')
 Route.get('numeros2', 'InicioController.numeros2');
 Route.post('fechafin', 'InicioController.fechafin');
 Route.post('ids', 'InicioController.temperatura');
 Route.get('datosactuales', 'InicioController.datosactuales');
-//Route.get('ultimafecha', 'InicioController.ultimafecha');

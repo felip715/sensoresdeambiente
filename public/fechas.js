@@ -41,13 +41,14 @@ $(document).ready(function() {
     });
 });
 
-(function() {
+setInterval(datact(), 5000);
+
+(function(datact) {
     $.get("datosactuales", function(datosrecibidos, status) {
         const datrecstring = JSON.parse(JSON.stringify(datosrecibidos)); // paso a string 
         $("#idtemp").html("Temperatura: " + datrecstring.temperatura + " °C");
         $("#idhume").html("Humedad: " + datrecstring.humedad + " %");
     });
-
 })();
 
 var morris1 = new Morris.Line({
