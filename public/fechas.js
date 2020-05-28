@@ -41,8 +41,6 @@ $(document).ready(function() {
     });
 });
 
-setInterval(datact(), 5000);
-
 (function(datact) {
     $.get("datosactuales", function(datosrecibidos, status) {
         const datrecstring = JSON.parse(JSON.stringify(datosrecibidos)); // paso a string 
@@ -50,6 +48,8 @@ setInterval(datact(), 5000);
         $("#idhume").html("Humedad: " + datrecstring.humedad + " %");
     });
 })();
+
+setInterval(datact(), 5000);
 
 var morris1 = new Morris.Line({
     element: 'grafica',
