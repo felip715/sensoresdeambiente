@@ -19,7 +19,6 @@ const edge = use('edge.js')
 const Helpers = use('Helpers')
 const Database = use('Database')
 
-Route.on('/').render('welcome')
 Route.get('numeros2', 'InicioController.numeros2');
 Route.post('fechafin', 'InicioController.fechafin');
 Route.post('ids', 'InicioController.temperatura');
