@@ -15,7 +15,6 @@ $(document).ready(function() {
                     var fechasfin = [];
                     var idfin = [];
                     for (var i = 0; i < y; i++) {
-                        //hasta aca llega
                         fechasfin[i] = datastring[i].fechadesalida;
                         idfin[i] = datastring[i].iddesalida;
                         $("#fecha_final").append("<option class=dropdown-item name=fefin value=" + idfin[i] + " >" + fechasfin[i] + "</option>");
@@ -43,19 +42,16 @@ $(document).ready(function() {
 
 (function datact() {
     $.get("datosactuales", function(datosrecibidos, status) {
-        const datrecstring = JSON.parse(JSON.stringify(datosrecibidos)); // paso a string 
+        const datrecstring = JSON.parse(JSON.stringify(datosrecibidos));
         $("#idtemp").html("Temperatura: " + datrecstring.temperatura + " °C");
         $("#idhume").html("Humedad: " + datrecstring.humedad + " %");
     });
 })();
 
-function datacta() {
-    console.log("se imprime");
-};
 
 function datact() {
     $.get("datosactuales", function(datosrecibidos, status) {
-        const datrecstring = JSON.parse(JSON.stringify(datosrecibidos)); // paso a string 
+        const datrecstring = JSON.parse(JSON.stringify(datosrecibidos));
         $("#idtemp").html("Temperatura: " + datrecstring.temperatura + " °C");
         $("#idhume").html("Humedad: " + datrecstring.humedad + " %");
     });
